@@ -204,6 +204,7 @@ def main(args):
     preprocessed_events_path = os.path.join(
         args.preprocessed_dataset_path, PREPROCESSED_EVENTS_FILENAME
     )
+
     with h5py.File(raw_events_path, "r") as f:
         event_position = np.stack((f['events']['x'], f['events']['y']), axis=1) # (N, 2)
         event_timestamp = US_TO_NS * np.array(f['events']['t'])                 # (N)

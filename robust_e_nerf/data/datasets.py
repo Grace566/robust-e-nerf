@@ -229,7 +229,8 @@ class Event(torch.utils.data.Dataset):
         is_valid = np.ones(num_events, dtype=bool)
 
         print("Defining `t_prev` for each event...")
-        for event_index in tqdm.tqdm(range(num_events)):
+        # for event_index in tqdm.tqdm(range(num_events)):
+        for event_index in tqdm.tqdm(range(1000000)):       # debug
             # extract this event
             raw_event_position = raw_event_positions[event_index]
             raw_event_timestamp = raw_event_timestamps[event_index]

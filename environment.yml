@@ -1,10 +1,4 @@
 name: ren
-channels:
-  - pytorch
-  - nvidia
-  - conda-forge
-  - robostack
-  - defaults
 dependencies:
   - cudatoolkit=11.3.1
   - cudatoolkit-dev=11.3.1

@@ -4,7 +4,7 @@ float32_matmul_precision: highest           #     { highest, high, medium }
 eval_target: [ novel_view ]                 #     { [ event_view ], [ novel_view ] }
 
 data:
-  dataset_directory: /data/wflow/datasets/tum-vie/mocap-desk2
+  dataset_directory: /mnt/i/Dataset/TUM-VIE_RobustENeRF_Preprocess
   train_dataset_ratio: 1.0                  #     { <int> (number of train effective batches),
                                             #       [0.0, 1.0] (fraction of train dataset) }
   val_dataset_ratio: 50                     #     { <int> (number of validation effective batches),
@@ -128,7 +128,7 @@ lr_scheduler:
     gamma: 0.33                             # [H]
 
 logger:
-  save_dir: /data/wflow/dev/robust-e-nerf/logs
+  save_dir: /mnt/e/PythonProject/robust-e-nerf
   name: "train/tum-vie/mocap-desk2/ct_freeze=false/refr_freeze=false"
   version:
 
