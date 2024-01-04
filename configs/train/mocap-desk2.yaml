@@ -5,18 +5,23 @@ eval_target: [ novel_view ]                 #     { [ event_view ], [ novel_view
 
 data:
   dataset_directory: /mnt/i/Dataset/TUM-VIE_RobustENeRF_Preprocess
-  train_dataset_ratio: 1.0                  #     { <int> (number of train effective batches),
-                                            #       [0.0, 1.0] (fraction of train dataset) }
-  val_dataset_ratio: 50                     #     { <int> (number of validation effective batches),
-                                            #       [0.0, 1.0] (fraction of validation dataset) }
-  test_dataset_ratio: 1.0                   #     { <int> (number of test effective batches),
-                                            #       [0.0, 1.0] (fraction of test dataset) }
+  train_dataset_ratio: 0.001
+  val_dataset_ratio: 1.0
+  test_dataset_ratio: 1.0
+#  train_dataset_ratio: 1.0                  #     { <int> (number of train effective batches),
+#                                            #       [0.0, 1.0] (fraction of train dataset) }
+#  val_dataset_ratio: 50                     #     { <int> (number of validation effective batches),
+#                                            #       [0.0, 1.0] (fraction of validation dataset) }
+#  test_dataset_ratio: 1.0                   #     { <int> (number of test effective batches),
+#                                            #       [0.0, 1.0] (fraction of test dataset) }
   train_dataset_perm_seed:                  #     { <empty> (no permutation), <int> }
   eval_dataset_perm_seed: 3                 #     { <empty> (no permutation), <int> }
 
   alpha_over_white_bg: false                # [H] { false, true }
-  train_init_eff_batch_size: 1024           # [H] multiple of total number of gpus across all nodes
-  train_eff_ray_sample_batch_size: 1048576  # [H] multiple of total number of gpus across all nodes
+  train_init_eff_batch_size: 1              # [H] multiple of total number of gpus across all nodes
+  train_eff_ray_sample_batch_size: 1024  # [H] multiple of total number of gpus across all nodes
+#  train_init_eff_batch_size: 1024           # [H] multiple of total number of gpus across all nodes
+#  train_eff_ray_sample_batch_size: 1048576  # [H] multiple of total number of gpus across all nodes
   val_eff_batch_size: 1                     #     multiple of total number of gpus across all nodes
   test_eff_batch_size: 1                    #     multiple of total number of gpus across all nodes
   num_workers_per_node: 0                   #     multiple of number of gpus per node
@@ -147,16 +152,20 @@ trainer:
                                             #     factor of the length of the testing dataset
   accelerator:                              #     { <empty> (single CPU/GPU), ddp (GPU), ddp_spawn (GPU) }
 
-  max_epochs: 40
-  log_every_n_steps: 100
+  max_epochs: 1
+#  max_epochs: 40
+  log_every_n_steps: 1
+#  log_every_n_steps: 100
   check_val_every_n_epoch: 4
   flush_logs_every_n_steps: 500
   val_check_interval: 1.0
-  limit_train_batches: 1000
+  limit_train_batches: 1
+#  limit_train_batches: 1000
 
   # for debugging purposes
   # logger: false
   # checkpoint_callback: false
+  checkpoint_callback: false
 
   # other useful options
   # resume_from_checkpoint:
